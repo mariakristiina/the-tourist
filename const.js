@@ -7,3 +7,4 @@ function random(min, max) {
 
 let sum = 0;
 let arr = [];
+let time = 60;

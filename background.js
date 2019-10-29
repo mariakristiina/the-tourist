@@ -8,13 +8,18 @@ preload() {
     this.bgberlin = loadImage("images/Berlin .jpg");
 }
 
+setup() {
+image(this.bgberlin, this.xBerlinImg, height - this.bgberlin.height, width);
+
+}
+
 draw() {
 clear();
 
 this.xBerlinImg -= 1;
 
-image(this.bgberlin, this.xBerlinImg, 135, width);
-image(this.bgberlin, this.xBerlinImg + width, 135, width);
+image(this.bgberlin, this.xBerlinImg, height - this.bgberlin.height, width);
+image(this.bgberlin, this.xBerlinImg + width, height - this.bgberlin.height, width);
 
 if(this.xBerlinImg <= -width) {
     this.xBerlinImg = 0;

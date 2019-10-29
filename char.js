@@ -17,6 +17,9 @@ class Tourist {
         this.y = height - this.height;
 
         this.orginalY = this.y;
+
+        
+        image(this.touristChar, this.x, this.y, this.width, this.height);
     }
 
 draw() {
