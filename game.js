@@ -1,34 +1,35 @@
 class Game {
-    constructor(img) {
+    constructor() {
         this.tourist = new Tourist();
         this.background = new Background();
+        this.message = new CollectMessage();
         this.mateArr = [];
-        this.sightArr = [];
+        this.TVArr = [];
+        this.branArr = [];
+        this.kebabArr = [];
+        this.message2 = new CollectMessage2();
     }
     preload() {
         this.background.preload();
         this.tourist.preload();
-        this.mateImg = loadImage("images/club_mate.png");
-        this.TVTowerImg = loadImage("images/TV tower.svg");
-        this.BranImg = loadImage("images/Branderburger Tor.svg");
-        this.imgMessage = loadImage("images/speech-bubble.png");
     }
 
     setup() {
         this.background.setup();
         this.tourist.setup();
-
+        this.message.setup();
+        this.message2.setup();
+ 
     }
 
     draw() {
+        clear();
         this.background.draw();
         this.tourist.draw();
         this.tourist.move();
 
-        if (frameCount > 100 && frameCount % 50 === 0) {
-            const newCollect = new Collect(this.mateImg)
-            newCollect.setup()
-            this.mateArr.push(newCollect);
+        if (frameCount > 100 && frameCount % 150 === 0) {
+            this.mateArr.push(new Collect);
         }
 
         this.mateArr.forEach((mate, index) => {
@@ -39,39 +40,70 @@ class Game {
             }
             if (this.pointCollection(mate, this.tourist)) {
                 this.mateArr.splice(index, 1);
-                arr.push(sum += 1);
-                document.querySelector(".mate span").innerHTML = arr[arr.length - 1];
-                if (arr[arr.length - 1] > 10) {
-                    const message = new Collect(this.imgMessage)
-                    message.setup();
-                    message.draw();
+                sumMate += 1;
+                document.querySelector(".mate span").innerHTML = sumMate;
                 }
-            }
-        });
-        if (frameCount > 50 && frameCount % 150 === 0) {
-            const TVTower = new Collect(this.TVTowerImg)
-            TVTower.setup()
-            this.sightArr.push(TVTower);
-        }
-        if (frameCount > 50 && frameCount % 50 === 0) {
-            const newCollect = new Collect(this.BranImg)
-            newCollect.setup()
-            this.sightArr.push(newCollect);
-        }
-
-        this.sightArr.forEach((sight, index) => {
-            sight.draw();
-
-            if (sight.x + sight.width <= 0) {
-                this.sightArr.splice(index, 1);
-            }
-            if (this.pointCollection(sight, this.tourist)) {
-                this.sightArr.splice(index, 1);
-                arr.push(sum += 1);
-                document.querySelector(".sights span").innerHTML = arr[arr.length - 1];
-            }
+                if(sumMate > 5) {
+                this.message.draw();
+                }
         });
 
+        if (frameCount > 100 && frameCount % 150 === 0) {
+            this.kebabArr.push(new Collect4);
+        }
+
+        this.kebabArr.forEach((food, index) => {
+            food.draw();
+
+            if (food.x + food.width <= 0) {
+                this.kebabArr.splice(index, 1);
+            }
+            if (this.pointCollection(food, this.tourist)) {
+                this.kebabArr.splice(index, 1);
+                sumKebab += 1;
+                document.querySelector(".food span").innerHTML = sumKebab;
+                }
+                if(sumKebab > 5) {
+                this.message2.draw();
+                }
+        });
+
+
+        if (frameCount > 100 && frameCount % 300 === 0 && !arrTVCollected.includes("collected")) {
+            this.TVArr.push(new Collect2);
+        }
+
+        this.TVArr.forEach((tower, index) => {
+            tower.draw();
+
+            if (tower.x + tower.width <= 0) {
+                this.TVArr.splice(index, 1);
+            }
+            if (this.pointCollection(tower, this.tourist)) {
+                this.TVArr.splice(index, 1);
+                sumSights += 1;
+                document.querySelector(".sights span").innerHTML = sumSights;
+                arrTVCollected.push("collected");
+                }
+        });
+
+        if (frameCount > 100 && frameCount % 300 === 0 && !arrBranCollected.includes("collected")) {
+            this.branArr.push(new Collect3);
+        }
+
+        this.branArr.forEach((tor, index) => {
+            tor.draw();
+
+            if (tor.x + tor.width <= 0) {
+                this.branArr.splice(index, 1);
+            }
+            if (this.pointCollection(tor, this.tourist)) {
+                this.branArr.splice(index, 1);
+                sumSights += 1;
+                document.querySelector(".sights span").innerHTML = sumSights;
+                arrBranCollected.push("collected");
+                }
+        });
 
     }
 
@@ -100,6 +132,8 @@ class Game {
                 clearInterval(timer);
                 console.log("the end");
                 noLoop();
+                start = false;
+                document.querySelector(".end-screen").style.visibility= "visible";
             }
         }, 1000);
 
