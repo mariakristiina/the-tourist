@@ -54,7 +54,13 @@ h1 {
     left: 15%;
     top: 20%;
     background-color:  rgba(0, 0, 0, .5);
-    padding: 15vh 30vh;
+    padding: 10vh 10vh;
     border-radius: 10px;
     color: white;
+    text-align: center;
+    font-size: 3.5vh;
+}
+
+.end-screen p {
+    padding-bottom: 2vh;
 }

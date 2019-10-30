@@ -25,10 +25,11 @@ function keyPressed() {
     }
     if (keyCode === 13) {
         start = true
-        loop();
         document.querySelector(".start-screen").style.visibility = "hidden";
         game.timer();
-
+    }
+    if(keyCode === 91) {
+        window.location.reload();
     }
 }
 

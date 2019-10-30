@@ -121,7 +121,6 @@ class CollectMessage3 {
         }
 
     draw() {
-        console.log("msg hospital")
         image(this.message3, this.x, this.y, 100, 100);
     }
 }
@@ -188,4 +187,36 @@ draw() {
     image(this.reichImg, this.x, this.y, this.width, this.height);
     this.x -= 1;
 }
+}
+
+class Collect10{
+    constructor() {
+    this.x = width;
+    this.y = random(0, height - 50);
+    this.clubImg = loadImage("images/club.svg")
+    }
+
+draw() {
+    this.width = this.clubImg.width * .08;
+    this.height = this.clubImg.height * .08;
+
+    image(this.clubImg, this.x, this.y, this.width, this.height);
+    this.x -= 1;
+}
+}
+
+class CollectMessage4 {
+    constructor() {
+        this.x = 400;
+        this.y = 200;
+    }
+
+    setup() {
+        this.message3 = loadImage("images/Club note.png");
+        }
+
+    draw() {
+        image(this.message3, this.x, this.y, 100, 100);
+        this.x -=1;
+    }
 }

@@ -3,6 +3,9 @@ class Game {
         this.tourist = new Tourist();
         this.background = new Background();
         this.message = new CollectMessage();
+        this.message2 = new CollectMessage2();
+        this.message3 = new CollectMessage3();
+        this.message4 = new CollectMessage4();
         this.mateArr = [];
         this.TVArr = [];
         this.branArr = [];
@@ -12,8 +15,8 @@ class Game {
         this.prezArr = [];
         this.charlieArr = [];
         this.reichArr = [];
-        this.message2 = new CollectMessage2();
-        this.message3 = new CollectMessage3();
+        this.clubArr = [];
+
     }
     preload() {
         this.background.preload();
@@ -26,6 +29,7 @@ class Game {
         this.message.setup();
         this.message2.setup();
         this.message3.setup();
+        this.message4.setup();
 
     }
 
@@ -73,11 +77,11 @@ class Game {
             }
         });
 
-        if (sumKebab > 5) {
+        if (sumKebab >= 5) {
             this.message2.draw();
         }
 
-        if (frameCount > 100 && frameCount % 300 === 0 && !arrTVCollected.includes("collected")) {
+        if (frameCount > 100 && frameCount % 300 === 0 && !sightsCollected.includes("the TV Tower")) {
             this.TVArr.push(new Collect2);
         }
 
@@ -91,11 +95,11 @@ class Game {
                 this.TVArr.splice(index, 1);
                 sumSights += 1;
                 document.querySelector(".sights span").innerHTML = sumSights;
-                arrTVCollected.push("collected");
+                sightsCollected.push("the TV Tower");
             }
         });
 
-        if (frameCount > 100 && frameCount % 300 === 0 && !arrBranCollected.includes("collected")) {
+        if (frameCount > 100 && frameCount % 300 === 0 && !sightsCollected.includes("Brandenburger Tor")) {
             this.branArr.push(new Collect3);
         }
 
@@ -109,11 +113,11 @@ class Game {
                 this.branArr.splice(index, 1);
                 sumSights += 1;
                 document.querySelector(".sights span").innerHTML = sumSights;
-                arrBranCollected.push("collected");
+                sightsCollected.push("Brandenburger Tor");
             }
         });
 
-        if (frameCount > 100 && frameCount % 600 === 0 && !hospitalCollected.includes("collected")) {
+        if (frameCount > 100 && frameCount % 600 === 0 && !sightsCollected.includes("collected")) {
             this.hospitalArr.push(new Collect5);
         }
         this.hospitalArr.forEach((hospital, index) => {
@@ -132,7 +136,7 @@ class Game {
             this.message3.draw();
                 }
 
-        if (frameCount > 100 && frameCount % 600 === 0 && !wallCollected.includes("collected")) {
+        if (frameCount > 100 && frameCount % 600 === 0 && !sightsCollected.includes("the Berlin Wall")) {
             this.wallArr.push(new Collect6);
         }
 
@@ -146,7 +150,7 @@ class Game {
                 this.wallArr.splice(index, 1);
                 sumSights += 1;
                 document.querySelector(".sights span").innerHTML = sumSights;
-                wallCollected.push("collected");
+                sightsCollected.push("the Berlin Wall");
             }
         });
 
@@ -167,7 +171,7 @@ class Game {
             }
         });
 
-        if (frameCount > 100 && frameCount % 600 === 0 && !charlieCollected.includes("collected")) {
+        if (frameCount > 100 && frameCount % 600 === 0 && !sightsCollected.includes("Checkpoint Charlie")) {
             this.charlieArr.push(new Collect8);
         }
 
@@ -181,11 +185,11 @@ class Game {
                 this.charlieArr.splice(index, 1);
                 sumSights += 1;
                 document.querySelector(".sights span").innerHTML = sumSights;
-                charlieCollected.push("collected");
+                sightsCollected.push("Checkpoint Charlie");
             }
         });
 
-        if (frameCount > 100 && frameCount % 600 === 0 && !reichCollected.includes("collected")) {
+        if (frameCount > 100 && frameCount % 600 === 0 && !sightsCollected.includes("the Reichstag")) {
             this.reichArr.push(new Collect9);
         }
 
@@ -199,9 +203,27 @@ class Game {
                 this.reichArr.splice(index, 1);
                 sumSights += 1;
                 document.querySelector(".sights span").innerHTML = sumSights;
-                reichCollected.push("collected");
+                sightsCollected.push("the Reichstag");
             }
         });
+
+        if (frameCount > 100 && frameCount % 250 === 0) {
+            this.clubArr.push(new Collect10);
+        }
+
+        this.clubArr.forEach((club, index) => {
+            club.draw();
+
+            if (club.x + club.width <= 0) {
+                this.clubArr.splice(index, 1);
+            }
+            if (this.pointCollection(club, this.tourist)) {
+                this.clubArr.splice(index, 1);
+                sumClub += 1;
+            }
+        });
+
+
 
     }
 
@@ -232,12 +254,15 @@ class Game {
                 noLoop();
                 start = false;
                 document.querySelector(".end-screen").style.visibility = "visible";
-                if (sumSights < 3) {
-                    document.querySelector(".end-sights").innerHTML = "You only visited " + sumSights + " sights."
-                } else {
-                    document.querySelector(".end-sights").innerHTML = "You visited "
-                }
-
+                if(sightsCollected.length === 0) {
+                document.querySelector(".end-sights").innerHTML = `You didn't visit any sights!`; }
+                else {document.querySelector(".end-sights").innerHTML = `You visited ${sightsCollected}`} 
+                if(sumKebab > 6) {
+                document.querySelector(".end-food").innerHTML = `You defintely put on weight! You ate ${sumKebab} Kebabs!`; }
+                if(sumMate > 9) {
+                document.querySelector(".end-mate").innerHTML = `You wont sleep for couple of nights! You drank ${sumMate} Mates!`; }  
+                if(hospitalCollected.includes("collected")) {
+                document.querySelector(".end-hospital").innerHTML = `Your weekend was a bit dramatic, you were taken to the hospital!`;}  
             }
         }, 1000);
 
