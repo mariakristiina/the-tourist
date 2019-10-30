@@ -7,7 +7,13 @@ class Game {
         this.TVArr = [];
         this.branArr = [];
         this.kebabArr = [];
+        this.hospitalArr = [];
+        this.wallArr = [];
+        this.prezArr = [];
+        this.charlieArr = [];
+        this.reichArr = [];
         this.message2 = new CollectMessage2();
+        this.message3 = new CollectMessage3();
     }
     preload() {
         this.background.preload();
@@ -19,7 +25,8 @@ class Game {
         this.tourist.setup();
         this.message.setup();
         this.message2.setup();
- 
+        this.message3.setup();
+
     }
 
     draw() {
@@ -42,11 +49,12 @@ class Game {
                 this.mateArr.splice(index, 1);
                 sumMate += 1;
                 document.querySelector(".mate span").innerHTML = sumMate;
-                }
-                if(sumMate > 5) {
-                this.message.draw();
-                }
+            }
         });
+
+        if (sumMate > 5) {
+            this.message.draw();
+        }
 
         if (frameCount > 100 && frameCount % 150 === 0) {
             this.kebabArr.push(new Collect4);
@@ -61,13 +69,13 @@ class Game {
             if (this.pointCollection(food, this.tourist)) {
                 this.kebabArr.splice(index, 1);
                 sumKebab += 1;
-                document.querySelector(".food span").innerHTML = sumKebab;
-                }
-                if(sumKebab > 5) {
-                this.message2.draw();
-                }
+                document.querySelector(".food span").innerHTML = sumKebab + sumFood;
+            }
         });
 
+        if (sumKebab > 5) {
+            this.message2.draw();
+        }
 
         if (frameCount > 100 && frameCount % 300 === 0 && !arrTVCollected.includes("collected")) {
             this.TVArr.push(new Collect2);
@@ -84,7 +92,7 @@ class Game {
                 sumSights += 1;
                 document.querySelector(".sights span").innerHTML = sumSights;
                 arrTVCollected.push("collected");
-                }
+            }
         });
 
         if (frameCount > 100 && frameCount % 300 === 0 && !arrBranCollected.includes("collected")) {
@@ -102,7 +110,97 @@ class Game {
                 sumSights += 1;
                 document.querySelector(".sights span").innerHTML = sumSights;
                 arrBranCollected.push("collected");
+            }
+        });
+
+        if (frameCount > 100 && frameCount % 600 === 0 && !hospitalCollected.includes("collected")) {
+            this.hospitalArr.push(new Collect5);
+        }
+        this.hospitalArr.forEach((hospital, index) => {
+            hospital.draw();
+            
+            if (hospital.x + hospital.width <= 0) {
+                this.hospitalArr.splice(index, 1);
+            }
+            if (this.pointCollection(hospital, this.tourist)) {
+                this.hospitalArr.splice(index, 1);
+                hospitalCollected.push("collected");
+            }
+        });
+
+        if (hospitalCollected.includes("collected")) {
+            this.message3.draw();
                 }
+
+        if (frameCount > 100 && frameCount % 600 === 0 && !wallCollected.includes("collected")) {
+            this.wallArr.push(new Collect6);
+        }
+
+        this.wallArr.forEach((wall, index) => {
+            wall.draw();
+
+            if (wall.x + wall.width <= 0) {
+                this.wallArr.splice(index, 1);
+            }
+            if (this.pointCollection(wall, this.tourist)) {
+                this.wallArr.splice(index, 1);
+                sumSights += 1;
+                document.querySelector(".sights span").innerHTML = sumSights;
+                wallCollected.push("collected");
+            }
+        });
+
+        if (frameCount > 100 && frameCount % 150 === 0) {
+            this.prezArr.push(new Collect7);
+        }
+
+        this.prezArr.forEach((food, index) => {
+            food.draw();
+
+            if (food.x + food.width <= 0) {
+                this.prezArr.splice(index, 1);
+            }
+            if (this.pointCollection(food, this.tourist)) {
+                this.prezArr.splice(index, 1);
+                sumFood += 1;
+                document.querySelector(".food span").innerHTML = sumKebab + sumFood;
+            }
+        });
+
+        if (frameCount > 100 && frameCount % 600 === 0 && !charlieCollected.includes("collected")) {
+            this.charlieArr.push(new Collect8);
+        }
+
+        this.charlieArr.forEach((wall, index) => {
+            wall.draw();
+
+            if (wall.x + wall.width <= 0) {
+                this.charlieArr.splice(index, 1);
+            }
+            if (this.pointCollection(wall, this.tourist)) {
+                this.charlieArr.splice(index, 1);
+                sumSights += 1;
+                document.querySelector(".sights span").innerHTML = sumSights;
+                charlieCollected.push("collected");
+            }
+        });
+
+        if (frameCount > 100 && frameCount % 600 === 0 && !reichCollected.includes("collected")) {
+            this.reichArr.push(new Collect9);
+        }
+
+        this.reichArr.forEach((sight, index) => {
+            sight.draw();
+
+            if (sight.x + sight.width <= 0) {
+                this.reichArr.splice(index, 1);
+            }
+            if (this.pointCollection(sight, this.tourist)) {
+                this.reichArr.splice(index, 1);
+                sumSights += 1;
+                document.querySelector(".sights span").innerHTML = sumSights;
+                reichCollected.push("collected");
+            }
         });
 
     }
@@ -133,7 +231,13 @@ class Game {
                 console.log("the end");
                 noLoop();
                 start = false;
-                document.querySelector(".end-screen").style.visibility= "visible";
+                document.querySelector(".end-screen").style.visibility = "visible";
+                if (sumSights < 3) {
+                    document.querySelector(".end-sights").innerHTML = "You only visited " + sumSights + " sights."
+                } else {
+                    document.querySelector(".end-sights").innerHTML = "You visited "
+                }
+
             }
         }, 1000);
 

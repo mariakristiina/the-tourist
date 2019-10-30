@@ -110,3 +110,82 @@ draw() {
 }
 }
 
+class CollectMessage3 {
+    constructor() {
+        this.x = 300;
+        this.y = 100;
+    }
+
+    setup() {
+        this.message3 = loadImage("images/HOSPITAL NOTE.png");
+        }
+
+    draw() {
+        console.log("msg hospital")
+        image(this.message3, this.x, this.y, 100, 100);
+    }
+}
+
+class Collect6 {
+    constructor() {
+    this.x = width;
+    this.y = random(0, height - 50);
+    this.wallImg = loadImage("images/berlin-wall.png")
+    }
+
+draw() {
+    this.width = this.wallImg.width * .2;
+    this.height = this.wallImg.height * .2;
+
+    image(this.wallImg, this.x, this.y, this.width, this.height);
+    this.x -= 1;
+}
+}
+
+class Collect7 {
+    constructor() {
+    this.x = width;
+    this.y = random(0, height - 50);
+    this.prezImg = loadImage("images/pretzel.png")
+    }
+
+draw() {
+    this.width = this.prezImg.width * .05;
+    this.height = this.prezImg.height * .05;
+
+    image(this.prezImg, this.x, this.y, this.width, this.height);
+    this.x -= 1;
+}
+}
+
+class Collect8 {
+    constructor() {
+    this.x = width;
+    this.y = random(0, height - 50);
+    this.charlieImg = loadImage("images/american sector.jpg")
+    }
+
+draw() {
+    this.width = this.charlieImg.width * .2;
+    this.height = this.charlieImg.height * .2;
+
+    image(this.charlieImg, this.x, this.y, this.width, this.height);
+    this.x -= 1;
+}
+}
+
+class Collect9{
+    constructor() {
+    this.x = width;
+    this.y = random(0, height - 50);
+    this.reichImg = loadImage("images/reicstag.svg")
+    }
+
+draw() {
+    this.width = this.reichImg.width * .5;
+    this.height = this.reichImg.height * .5;
+
+    image(this.reichImg, this.x, this.y, this.width, this.height);
+    this.x -= 1;
+}
+}
