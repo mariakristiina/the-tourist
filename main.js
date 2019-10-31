@@ -26,6 +26,9 @@ function keyPressed() {
     if (keyCode === 13) {
         start = true
         document.querySelector(".start-screen").style.visibility = "hidden";
+        document.querySelector("h1").style.visibility = "hidden";
+        document.querySelector(".scores").style.visibility = "visible";
+        document.querySelector(".timer").style.visibility = "visible";
         game.timer();
     }
     if(keyCode === 91) {

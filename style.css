@@ -7,24 +7,32 @@
     visibility: visible;
     position: absolute;
     z-index: 1000;
-    left: 15%;
-    top: 20%;
+    left: 41vh;
+    top: 20vh;
+    background-color:  rgba(0, 0, 0, .5);
+    padding: 5vh 17vh 3vh 17vh;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
 }
 
 .start-screen p {
-    background-color:  rgba(0, 0, 0, .5);
-    padding: 15vh 30vh;
-    border-radius: 10px;
-    color: white;
+    padding-bottom: 2vh;
+}
+
+.commands span {
+    color: red;
 }
 
 .scores {
     position: fixed;
-    top: 2vh;
+    top: 8vh;
     left: 2vh;
-    border: 2px solid red;
     padding: 2vh;
     border-radius: 10px;
+    visibility: hidden;
+    background-color:  rgba(0, 0, 0, .5);
+    color: white;
 }
 
 .scores li {
@@ -34,20 +42,24 @@
 
 h1 {
     position: absolute;
-    top: 5vh;
-    left: 35vh;
+    top: 10vh;
+    left: 54.5vh;
+    font-size: 3em;
+    visibility: visible;
 }
 
 .timer {
-    border: 2px solid red;
     padding: 1vh;
     border-radius: 10px;
     position: fixed;
-    top: 2vh;
-    left: 80vh;
+    top: 11vh;
+    left: 135vh;
+    visibility: hidden;
+    background-color:  rgba(0, 0, 0, .5);
+    color: white;
 }
 
-.end-screen {
+/* .end-screen {
     visibility: hidden;
     position: absolute;
     z-index: 1000;
@@ -59,8 +71,46 @@ h1 {
     color: white;
     text-align: center;
     font-size: 3.5vh;
+} */
+
+.end-message {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1000;
+    left: 50vh;
+    top: 22vh;
+    background-color:  rgba(0, 0, 0, .5);
+    padding: 3vh 3vh;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
 }
 
-.end-screen p {
-    padding-bottom: 2vh;
+.end-mate {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1000;
+    left: 50vh;
+    top: 33vh;
+    background-color:  rgba(0, 0, 0, .5);
+    padding: 3vh 10.5vh;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.end-food {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1000;
+    left: 50vh;
+    top: 44vh;
+    background-color:  rgba(0, 0, 0, .5);
+    padding: 3vh 2.3vh;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
 }

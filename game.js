@@ -60,7 +60,7 @@ class Game {
             this.message.draw();
         }
 
-        if (frameCount > 100 && frameCount % 150 === 0) {
+        if (frameCount > 300 && frameCount % 100 === 0) {
             this.kebabArr.push(new Collect4);
         }
 
@@ -81,7 +81,7 @@ class Game {
             this.message2.draw();
         }
 
-        if (frameCount > 100 && frameCount % 300 === 0 && !sightsCollected.includes("the TV Tower")) {
+        if (frameCount > 300 && frameCount % 450 === 0 && !sightsCollected.includes("the TV Tower")) {
             this.TVArr.push(new Collect2);
         }
 
@@ -99,7 +99,7 @@ class Game {
             }
         });
 
-        if (frameCount > 100 && frameCount % 300 === 0 && !sightsCollected.includes("Brandenburger Tor")) {
+        if (frameCount > 700 && frameCount % 450 === 0 && !sightsCollected.includes("Brandenburger Tor")) {
             this.branArr.push(new Collect3);
         }
 
@@ -117,12 +117,12 @@ class Game {
             }
         });
 
-        if (frameCount > 100 && frameCount % 600 === 0 && !sightsCollected.includes("collected")) {
+        if (frameCount > 350 && frameCount % 700 === 0 && !hospitalCollected.includes("collected")) {
             this.hospitalArr.push(new Collect5);
         }
         this.hospitalArr.forEach((hospital, index) => {
             hospital.draw();
-            
+
             if (hospital.x + hospital.width <= 0) {
                 this.hospitalArr.splice(index, 1);
             }
@@ -134,9 +134,9 @@ class Game {
 
         if (hospitalCollected.includes("collected")) {
             this.message3.draw();
-                }
+        }
 
-        if (frameCount > 100 && frameCount % 600 === 0 && !sightsCollected.includes("the Berlin Wall")) {
+        if (frameCount > 700 && frameCount % 600 === 0 && !sightsCollected.includes("the Berlin Wall")) {
             this.wallArr.push(new Collect6);
         }
 
@@ -154,7 +154,7 @@ class Game {
             }
         });
 
-        if (frameCount > 100 && frameCount % 150 === 0) {
+        if (frameCount > 50 && frameCount % 120 === 0) {
             this.prezArr.push(new Collect7);
         }
 
@@ -171,7 +171,7 @@ class Game {
             }
         });
 
-        if (frameCount > 100 && frameCount % 600 === 0 && !sightsCollected.includes("Checkpoint Charlie")) {
+        if (frameCount > 500 && frameCount % 500 === 0 && !sightsCollected.includes("Checkpoint Charlie")) {
             this.charlieArr.push(new Collect8);
         }
 
@@ -189,7 +189,7 @@ class Game {
             }
         });
 
-        if (frameCount > 100 && frameCount % 600 === 0 && !sightsCollected.includes("the Reichstag")) {
+        if (frameCount > 800 && frameCount % 800 === 0 && !sightsCollected.includes("the Reichstag")) {
             this.reichArr.push(new Collect9);
         }
 
@@ -207,7 +207,7 @@ class Game {
             }
         });
 
-        if (frameCount > 100 && frameCount % 250 === 0) {
+        if (frameCount > 1000 && frameCount % 450 === 0) {
             this.clubArr.push(new Collect10);
         }
 
@@ -223,8 +223,15 @@ class Game {
             }
         });
 
-
-
+        if (sumClub === 1) {
+            this.message4.draw();
+        }
+        if (sumClub === 4) {
+            this.message4.draw();
+        }
+        if (sumClub === 5) {
+            this.message4.draw();
+        }
     }
 
     pointCollection(collect, tourist) {
@@ -254,15 +261,38 @@ class Game {
                 noLoop();
                 start = false;
                 document.querySelector(".end-screen").style.visibility = "visible";
-                if(sightsCollected.length === 0) {
-                document.querySelector(".end-sights").innerHTML = `You didn't visit any sights!`; }
-                else {document.querySelector(".end-sights").innerHTML = `You visited ${sightsCollected}`} 
-                if(sumKebab > 6) {
-                document.querySelector(".end-food").innerHTML = `You defintely put on weight! You ate ${sumKebab} Kebabs!`; }
-                if(sumMate > 9) {
-                document.querySelector(".end-mate").innerHTML = `You wont sleep for couple of nights! You drank ${sumMate} Mates!`; }  
-                if(hospitalCollected.includes("collected")) {
-                document.querySelector(".end-hospital").innerHTML = `Your weekend was a bit dramatic, you were taken to the hospital!`;}  
+                document.querySelector(".end-message").style.visibility = "visible";
+                document.querySelector(".end-mate").style.visibility = "visible";
+                document.querySelector(".end-food").style.visibility = "visible";
+                document.querySelector("h1").style.visibility = "visible";
+                document.querySelector(".scores").style.visibility = "hidden";
+                document.querySelector(".timer").style.visibility = "hidden";
+                // if(sightsCollected.length === 0) {
+                // document.querySelector(".end-sights").innerHTML = `You didn't visit any sights!`; }
+                // else {document.querySelector(".end-sights").innerHTML = `You visited ${sightsCollected}`} 
+                if((sumFood + sumKebab) === 0) {
+                document.querySelector(".end-food").innerHTML = `You didn't eat anything the whole weekend`; }
+                else if(sumFood === 1 && sumKebab === 1)  { document.querySelector(".end-food").innerHTML = `You ate a Kebab and a Pretzel!`; 
+                document.querySelector(".end-food").style.padding ="3vh 14vh";    
+            }
+                else if(sumFood === 1)  { document.querySelector(".end-food").innerHTML = `You ate ${sumKebab} Kebabs and a Pretzel!`; }
+                else if(sumKebab === 1)  { document.querySelector(".end-food").innerHTML = `You ate a Kebab and ${sumFood} Pretzels!`; }
+                else if ((sumFood + sumKebab) < 6) { document.querySelector(".end-food").innerHTML = `You ate ${sumKebab} Kebabs and ${sumFood} Pretzels!`; }
+                else {
+                document.querySelector(".end-food").innerHTML = `You defintely put on some weight! You ate ${sumKebab} Kebabs and ${sumFood} Pretzels!`; }
+                if(sumMate === 0) {
+                    document.querySelector(".end-mate").innerHTML = `You didn't drink any Mates!`;
+                }
+                else if (sumMate < 6) {
+                    document.querySelector(".end-mate").innerHTML = `You drank ${sumMate} Mates!`;
+                    document.querySelector(".end-mate").style.padding ="3vh 14.6vh";
+                } else {
+                    document.querySelector(".end-mate").innerHTML = `You drank ${sumMate} Mates! You wont sleep for a while!`;
+                    document.querySelector(".end-mate").style.padding = "3vh 3vh";
+                    document.querySelector(".end-mate").style.left = "47vh";
+                }
+                // if(hospitalCollected.includes("collected")) {
+                // document.querySelector(".end-hospital").innerHTML = `Your weekend was a bit dramatic, you were taken to the hospital!`;}  
             }
         }, 1000);
 

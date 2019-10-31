@@ -1,7 +1,9 @@
+let randomMin = 100;
+let randomMax = height - 150;
 class Collect {
     constructor() {
         this.x = width;
-        this.y = random(0, height - 50);
+        this.y = random(randomMin, randomMax);
         this.mateImg = loadImage("images/club_mate.png")
     }
 
@@ -11,15 +13,14 @@ class Collect {
         this.height = this.mateImg.height * .2;
 
         image(this.mateImg, this.x, this.y, this.width, this.height);
-        this.x -= 1;
+        this.x -= 6;
     }
 }
 
 class CollectMessage {
     constructor() {
-        this.x = 100;
-        this.y = 0;
-
+        this.x = width - 300;
+        this.y = height - 400;
     }
 
     setup() {
@@ -27,14 +28,18 @@ class CollectMessage {
         }
 
     draw() {
-        image(this.message, this.x, this.y, 100, 100);
+        this.width = this.message.width * .5;
+        this.height = this.message.height * .5;
+
+        image(this.message, this.x, this.y, this.width, this.height);
+        this.x -= 3;
     }
 }
 
 class Collect2 {
     constructor() {
     this.x = width;
-    this.y = random(0, height - 50);
+    this.y = random(randomMin, randomMax);
     this.towerImg = loadImage("images/TVtower.svg")
     }
 
@@ -43,14 +48,14 @@ draw() {
     this.height = this.towerImg.height * .15;
 
     image(this.towerImg, this.x, this.y, this.width, this.height);
-    this.x -= 1;
+    this.x -= 7;
 }
 }
 
 class Collect3 {
     constructor() {
     this.x = width;
-    this.y = random(0, height - 50);
+    this.y = random(randomMin, randomMax);
     this.branImg = loadImage("images/Branderburger Tor.svg")
     }
 
@@ -59,14 +64,14 @@ draw() {
     this.height = this.branImg.height * .5;
 
     image(this.branImg, this.x, this.y, this.width, this.height);
-    this.x -= 1;
+    this.x -= 8;
 }
 }
 
 class Collect4 {
     constructor() {
     this.x = width;
-    this.y = random(0, height - 50);
+    this.y = random(randomMin, randomMax);
     this.kebabImg = loadImage("images/kebab.svg")
     }
 
@@ -75,14 +80,14 @@ draw() {
     this.height = this.kebabImg.height * .1;
 
     image(this.kebabImg, this.x, this.y, this.width, this.height);
-    this.x -= 1;
+    this.x -= 7.5;
 }
 }
 
 class CollectMessage2 {
     constructor() {
-        this.x = 200;
-        this.y = 0;
+        this.x = width - 300;
+        this.y = height - 700;
     }
 
     setup() {
@@ -90,14 +95,18 @@ class CollectMessage2 {
         }
 
     draw() {
-        image(this.message2, this.x, this.y, 100, 100);
+        this.width = this.message2.width * .5;
+        this.height = this.message2.height * .5;
+
+        image(this.message2, this.x, this.y, this.width, this.height);
+        this.x -= 3;
     }
 }
 
 class Collect5 {
     constructor() {
     this.x = width;
-    this.y = random(0, height - 50);
+    this.y = random(randomMin, randomMax);
     this.hospitalImg = loadImage("images/hospital.svg")
     }
 
@@ -106,14 +115,14 @@ draw() {
     this.height = this.hospitalImg.height * .5;
 
     image(this.hospitalImg, this.x, this.y, this.width, this.height);
-    this.x -= 1;
+    this.x -= 9;
 }
 }
 
 class CollectMessage3 {
     constructor() {
-        this.x = 300;
-        this.y = 100;
+        this.x = width - 300;
+        this.y = height - 550;
     }
 
     setup() {
@@ -121,30 +130,34 @@ class CollectMessage3 {
         }
 
     draw() {
-        image(this.message3, this.x, this.y, 100, 100);
+        this.width = this.message3.width * .5;
+        this.height = this.message3.height * .5;
+
+        image(this.message3, this.x, this.y, this.width, this.height);
+        this.x -= 3;
     }
 }
 
 class Collect6 {
     constructor() {
     this.x = width;
-    this.y = random(0, height - 50);
-    this.wallImg = loadImage("images/berlin-wall.png")
+    this.y = random(randomMin, randomMax);
+    this.wallImg = loadImage("images/Berlin-wall2.svg")
     }
 
 draw() {
-    this.width = this.wallImg.width * .2;
-    this.height = this.wallImg.height * .2;
+    this.width = this.wallImg.width * .1;
+    this.height = this.wallImg.height * .1;
 
     image(this.wallImg, this.x, this.y, this.width, this.height);
-    this.x -= 1;
+    this.x -= 6.5;
 }
 }
 
 class Collect7 {
     constructor() {
     this.x = width;
-    this.y = random(0, height - 50);
+    this.y = random(randomMin, randomMax);
     this.prezImg = loadImage("images/pretzel.png")
     }
 
@@ -153,14 +166,14 @@ draw() {
     this.height = this.prezImg.height * .05;
 
     image(this.prezImg, this.x, this.y, this.width, this.height);
-    this.x -= 1;
+    this.x -= 8.5;
 }
 }
 
 class Collect8 {
     constructor() {
     this.x = width;
-    this.y = random(0, height - 50);
+    this.y = random(randomMin, randomMax);
     this.charlieImg = loadImage("images/american sector.jpg")
     }
 
@@ -169,14 +182,14 @@ draw() {
     this.height = this.charlieImg.height * .2;
 
     image(this.charlieImg, this.x, this.y, this.width, this.height);
-    this.x -= 1;
+    this.x -= 5.5;
 }
 }
 
 class Collect9{
     constructor() {
     this.x = width;
-    this.y = random(0, height - 50);
+    this.y = random(randomMin, randomMax);
     this.reichImg = loadImage("images/reicstag.svg")
     }
 
@@ -185,14 +198,14 @@ draw() {
     this.height = this.reichImg.height * .5;
 
     image(this.reichImg, this.x, this.y, this.width, this.height);
-    this.x -= 1;
+    this.x -= 9.5;
 }
 }
 
 class Collect10{
     constructor() {
     this.x = width;
-    this.y = random(0, height - 50);
+    this.y = random(randomMin, randomMax);
     this.clubImg = loadImage("images/club.svg")
     }
 
@@ -201,22 +214,25 @@ draw() {
     this.height = this.clubImg.height * .08;
 
     image(this.clubImg, this.x, this.y, this.width, this.height);
-    this.x -= 1;
+    this.x -= 10;
 }
 }
 
 class CollectMessage4 {
     constructor() {
-        this.x = 400;
-        this.y = 200;
+        this.x = width - 300;
+        this.y = height - 250;
     }
 
     setup() {
-        this.message3 = loadImage("images/Club note.png");
+        this.message4 = loadImage("images/Club note.png");
         }
 
     draw() {
-        image(this.message3, this.x, this.y, 100, 100);
-        this.x -=1;
+        this.width = this.message4.width * .5;
+        this.height = this.message4.height * .5
+
+        image(this.message4, this.x, this.y, this.width, this.height);
+        this.x -=3;
     }
 }
