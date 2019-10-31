@@ -1,13 +1,14 @@
 * {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
+    margin-left: 1.5vh;
 }
 
 .start-screen {
     visibility: visible;
     position: absolute;
     z-index: 1000;
-    left: 41vh;
+    left: 51vh;
     top: 20vh;
     background-color:  rgba(0, 0, 0, .5);
     padding: 5vh 17vh 3vh 17vh;
@@ -26,8 +27,8 @@
 
 .scores {
     position: fixed;
-    top: 8vh;
-    left: 2vh;
+    top: 7vh;
+    left: 5vh;
     padding: 2vh;
     border-radius: 10px;
     visibility: hidden;
@@ -43,7 +44,7 @@
 h1 {
     position: absolute;
     top: 10vh;
-    left: 54.5vh;
+    left: 67vh;
     font-size: 3em;
     visibility: visible;
 }
@@ -53,7 +54,7 @@ h1 {
     border-radius: 10px;
     position: fixed;
     top: 11vh;
-    left: 135vh;
+    left: 160vh;
     visibility: hidden;
     background-color:  rgba(0, 0, 0, .5);
     color: white;
@@ -77,7 +78,7 @@ h1 {
     visibility: hidden;
     position: absolute;
     z-index: 1000;
-    left: 50vh;
+    left: 63vh;
     top: 22vh;
     background-color:  rgba(0, 0, 0, .5);
     padding: 3vh 3vh;
@@ -91,7 +92,7 @@ h1 {
     visibility: hidden;
     position: absolute;
     z-index: 1000;
-    left: 50vh;
+    left: 63vh;
     top: 33vh;
     background-color:  rgba(0, 0, 0, .5);
     padding: 3vh 10.5vh;
@@ -105,7 +106,7 @@ h1 {
     visibility: hidden;
     position: absolute;
     z-index: 1000;
-    left: 50vh;
+    left: 63vh;
     top: 44vh;
     background-color:  rgba(0, 0, 0, .5);
     padding: 3vh 2.3vh;

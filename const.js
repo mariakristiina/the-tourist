@@ -1,11 +1,11 @@
 let height = 850;
-let width = 1400;
+let width = 1600;
 
 function random(min, max) {
     return Math.floor(Math.random() * (max - min));
 }
 
-let time = 10;
+let time = 30;
 let start = false
 
 let sumMate = 0;

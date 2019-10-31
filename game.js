@@ -264,6 +264,7 @@ class Game {
                 document.querySelector(".end-message").style.visibility = "visible";
                 document.querySelector(".end-mate").style.visibility = "visible";
                 document.querySelector(".end-food").style.visibility = "visible";
+                document.querySelector(".end-sights").style.visibility = "visible";
                 document.querySelector("h1").style.visibility = "visible";
                 document.querySelector(".scores").style.visibility = "hidden";
                 document.querySelector(".timer").style.visibility = "hidden";
@@ -273,15 +274,24 @@ class Game {
                 if((sumFood + sumKebab) === 0) {
                 document.querySelector(".end-food").innerHTML = `You didn't eat anything the whole weekend`; }
                 else if(sumFood === 1 && sumKebab === 1)  { document.querySelector(".end-food").innerHTML = `You ate a Kebab and a Pretzel!`; 
-                document.querySelector(".end-food").style.padding ="3vh 14vh";    
+                document.querySelector(".end-food").style.padding ="3vh 8.5vh";    
             }
-                else if(sumFood === 1)  { document.querySelector(".end-food").innerHTML = `You ate ${sumKebab} Kebabs and a Pretzel!`; }
-                else if(sumKebab === 1)  { document.querySelector(".end-food").innerHTML = `You ate a Kebab and ${sumFood} Pretzels!`; }
-                else if ((sumFood + sumKebab) < 6) { document.querySelector(".end-food").innerHTML = `You ate ${sumKebab} Kebabs and ${sumFood} Pretzels!`; }
+                else if(sumFood === 1)  { document.querySelector(".end-food").innerHTML = `You ate ${sumKebab} Kebabs and a Pretzel!`;
+                document.querySelector(".end-food").style.padding ="3vh 8.5vh";  }
+                else if(sumKebab === 1)  { document.querySelector(".end-food").innerHTML = `You ate a Kebab and ${sumFood} Pretzels!`;
+                document.querySelector(".end-food").style.padding ="3vh 8.5vh";  }
+                else if ((sumFood + sumKebab) < 6) { document.querySelector(".end-food").innerHTML = `You ate ${sumKebab} Kebabs and ${sumFood} Pretzels!`;
+                document.querySelector(".end-food").style.padding ="3vh 8vh";  }
                 else {
-                document.querySelector(".end-food").innerHTML = `You defintely put on some weight! You ate ${sumKebab} Kebabs and ${sumFood} Pretzels!`; }
+                document.querySelector(".end-food").innerHTML = `You defintely put on some weight! You ate ${sumKebab} Kebabs and ${sumFood} Pretzels!`; 
+                document.querySelector(".end-food").style.padding ="3vh 3vh";
+                document.querySelector(".end-food").style.left ="50vh";}
                 if(sumMate === 0) {
                     document.querySelector(".end-mate").innerHTML = `You didn't drink any Mates!`;
+                }
+                else if (sumMate === 1) {
+                    document.querySelector(".end-mate").innerHTML = `You drank 1 Mate!`; 
+                    document.querySelector(".end-mate").style.padding ="3vh 15.3vh";  
                 }
                 else if (sumMate < 6) {
                     document.querySelector(".end-mate").innerHTML = `You drank ${sumMate} Mates!`;
@@ -289,7 +299,7 @@ class Game {
                 } else {
                     document.querySelector(".end-mate").innerHTML = `You drank ${sumMate} Mates! You wont sleep for a while!`;
                     document.querySelector(".end-mate").style.padding = "3vh 3vh";
-                    document.querySelector(".end-mate").style.left = "47vh";
+                    document.querySelector(".end-mate").style.left = "59.5vh";
                 }
                 // if(hospitalCollected.includes("collected")) {
                 // document.querySelector(".end-hospital").innerHTML = `Your weekend was a bit dramatic, you were taken to the hospital!`;}  
