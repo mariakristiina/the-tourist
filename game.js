@@ -16,6 +16,7 @@ class Game {
         this.charlieArr = [];
         this.reichArr = [];
         this.clubArr = [];
+        this.ringArr = [];
 
     }
     preload() {
@@ -56,7 +57,7 @@ class Game {
             }
         });
 
-        if (sumMate > 5) {
+        if (sumMate > 8) {
             this.message.draw();
         }
 
@@ -77,7 +78,7 @@ class Game {
             }
         });
 
-        if (sumKebab >= 5) {
+        if (sumKebab > 6) {
             this.message2.draw();
         }
 
@@ -207,7 +208,7 @@ class Game {
             }
         });
 
-        if (frameCount > 1000 && frameCount % 450 === 0) {
+        if (frameCount > 1000 && frameCount % 600 === 0) {
             this.clubArr.push(new Collect10);
         }
 
@@ -219,19 +220,31 @@ class Game {
             }
             if (this.pointCollection(club, this.tourist)) {
                 this.clubArr.splice(index, 1);
-                sumClub += 1;
+                sumClub = true;
+            }
+        });
+        if(sumClub) {
+        this.message4.draw();
+        }
+
+        if (frameCount > 400 && frameCount % 400 === 0) {
+            this.ringArr.push(new Collect11);
+        }
+
+        this.ringArr.forEach((ring, index) => {
+            ring.draw();
+
+            if (ring.x + ring.width <= 0) {
+                this.ringArr.splice(index, 1);
+            }
+            if (this.pointCollection(ring, this.tourist)) {
+                this.ringArr.splice(index, 1);
+                sumRing += 1;
+                document.querySelector(".ring span").innerHTML = sumRing;
             }
         });
 
-        if (sumClub === 1) {
-            this.message4.draw();
-        }
-        if (sumClub === 4) {
-            this.message4.draw();
-        }
-        if (sumClub === 5) {
-            this.message4.draw();
-        }
+
     }
 
     pointCollection(collect, tourist) {
@@ -265,17 +278,29 @@ class Game {
                 document.querySelector(".end-mate").style.visibility = "visible";
                 document.querySelector(".end-food").style.visibility = "visible";
                 document.querySelector(".end-sights").style.visibility = "visible";
+                document.querySelector(".end-ring").style.visibility = "visible";
                 document.querySelector("h1").style.visibility = "visible";
                 document.querySelector(".scores").style.visibility = "hidden";
                 document.querySelector(".timer").style.visibility = "hidden";
-                // if(sightsCollected.length === 0) {
-                // document.querySelector(".end-sights").innerHTML = `You didn't visit any sights!`; }
-                // else {document.querySelector(".end-sights").innerHTML = `You visited ${sightsCollected}`} 
+
+                if(sightsCollected.length === 0) {
+                document.querySelector(".end-sights").innerHTML = `What were you doing? You didn't visit any sights!`; }
+                else if(sightsCollected.length === 1) {document.querySelector(".end-sights").innerHTML = `What were you doing? You visited only one sight!`} 
+                else {document.querySelector(".end-sights").innerHTML = `Well done! You visited ${sumSights} sights.`
+                    document.querySelector(".end-sights").style.padding = "3vh 8vh"
+                    document.querySelector(".end-sights").style.left = "63vh"
+            } 
+
+            if(sumClub === 1) {
+                document.querySelector(".end-ring").innerHTML = `You rode around the Ring Bahn one time.`;
+            } else {
+                document.querySelector(".end-ring").innerHTML = `You rode around the Ring Bahn ${sumRing} times.`; 
+            }
+               
                 if((sumFood + sumKebab) === 0) {
                 document.querySelector(".end-food").innerHTML = `You didn't eat anything the whole weekend`; }
                 else if(sumFood === 1 && sumKebab === 1)  { document.querySelector(".end-food").innerHTML = `You ate a Kebab and a Pretzel!`; 
-                document.querySelector(".end-food").style.padding ="3vh 8.5vh";    
-            }
+                document.querySelector(".end-food").style.padding ="3vh 9vh";    }
                 else if(sumFood === 1)  { document.querySelector(".end-food").innerHTML = `You ate ${sumKebab} Kebabs and a Pretzel!`;
                 document.querySelector(".end-food").style.padding ="3vh 8.5vh";  }
                 else if(sumKebab === 1)  { document.querySelector(".end-food").innerHTML = `You ate a Kebab and ${sumFood} Pretzels!`;
@@ -286,6 +311,7 @@ class Game {
                 document.querySelector(".end-food").innerHTML = `You defintely put on some weight! You ate ${sumKebab} Kebabs and ${sumFood} Pretzels!`; 
                 document.querySelector(".end-food").style.padding ="3vh 3vh";
                 document.querySelector(".end-food").style.left ="50vh";}
+                
                 if(sumMate === 0) {
                     document.querySelector(".end-mate").innerHTML = `You didn't drink any Mates!`;
                 }
@@ -301,8 +327,9 @@ class Game {
                     document.querySelector(".end-mate").style.padding = "3vh 3vh";
                     document.querySelector(".end-mate").style.left = "59.5vh";
                 }
-                // if(hospitalCollected.includes("collected")) {
-                // document.querySelector(".end-hospital").innerHTML = `Your weekend was a bit dramatic, you were taken to the hospital!`;}  
+                
+                if(hospitalCollected.includes("collected")) {
+                document.querySelector(".end-hospital").style.visibility = "visible";}  
             }
         }, 1000);
 

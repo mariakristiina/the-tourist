@@ -10,7 +10,7 @@
     z-index: 1000;
     left: 51vh;
     top: 20vh;
-    background-color:  rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .5);
     padding: 5vh 17vh 3vh 17vh;
     border-radius: 10px;
     color: white;
@@ -32,11 +32,13 @@
     padding: 2vh;
     border-radius: 10px;
     visibility: hidden;
-    background-color:  rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .5);
     color: white;
 }
 
 .scores li {
+    display: flex;
+    justify-content: space-between;
     list-style: none;
     text-align: left;
 }
@@ -54,25 +56,11 @@ h1 {
     border-radius: 10px;
     position: fixed;
     top: 11vh;
-    left: 160vh;
+    left: 174vh;
     visibility: hidden;
-    background-color:  rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .5);
     color: white;
 }
-
-/* .end-screen {
-    visibility: hidden;
-    position: absolute;
-    z-index: 1000;
-    left: 15%;
-    top: 20%;
-    background-color:  rgba(0, 0, 0, .5);
-    padding: 10vh 10vh;
-    border-radius: 10px;
-    color: white;
-    text-align: center;
-    font-size: 3.5vh;
-} */
 
 .end-message {
     visibility: hidden;
@@ -80,7 +68,7 @@ h1 {
     z-index: 1000;
     left: 63vh;
     top: 22vh;
-    background-color:  rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .5);
     padding: 3vh 3vh;
     border-radius: 10px;
     color: white;
@@ -94,7 +82,7 @@ h1 {
     z-index: 1000;
     left: 63vh;
     top: 33vh;
-    background-color:  rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .5);
     padding: 3vh 10.5vh;
     border-radius: 10px;
     color: white;
@@ -108,8 +96,50 @@ h1 {
     z-index: 1000;
     left: 63vh;
     top: 44vh;
-    background-color:  rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, .5);
     padding: 3vh 2.3vh;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.end-sights {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1000;
+    left: 59.5vh;
+    top: 55vh;
+    background-color: rgba(0, 0, 0, .5);
+    padding: 3vh 2.3vh;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.end-hospital {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1000;
+    left: 51.5vh;
+    top: 75vh;
+    background-color: rgba(0, 0, 0, .5);
+    padding: 3vh 2.3vh;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.end-ring {
+    visibility: hidden;
+    position: absolute;
+    z-index: 1000;
+    left: 63vh;
+    top: 65vh;
+    background-color: rgba(0, 0, 0, .5);
+    padding: 3vh 4vh;
     border-radius: 10px;
     color: white;
     text-align: center;

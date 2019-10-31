@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,41 +9,43 @@
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
 
-<div class="container">
-    <div>
-   <ul class="scores">
-       <li class="mate">MATE: <span>0</span></li>
-       <li class="food">FOOD: <span>0</span></li>
-       <li>FOOD: <span>0</span></li>
-       <li class="sights">SIGHTS: <span>0</span></li>
-   </ul>
-   </div>
-<div>
-<h1>THE TOURIST</h1> 
-</div>
-<div>
-    <div class="timer">TIME: <span>60</span></div>
-</div>
+    <div class="container">
+        <div>
+            <ul class="scores">
+                <li class="mate">MATE: <span>0</span></li>
+                <li class="food">FOOD: <span>0</span></li>
+                <li class="ring">RING: <span>0</span></li>
+                <li class="sights">SIGHTS: <span>0</span></li>
+            </ul>
+        </div>
+        <div>
+            <h1>THE TOURIST</h1>
+        </div>
+        <div>
+            <div class="timer">TIME: <span>60</span></div>
+        </div>
 
-</div>
+    </div>
 
-<div class="start-screen">
+    <div class="start-screen">
         <p>WELCOME TO BERLIN</p>
         <p>HAVE A GREAT WEEKEND!</p>
         <p class="commands">MOVE FORWARD WITH <span>"=>"</span></p>
-        <p class="commands">MOVE BACKWARDS WITH <span>"<="</span> </p>
-        <p class="commands">JUMP WITH <span>"SPACE"</span> </p>
+        <p class="commands">MOVE BACKWARDS WITH <span>"<="</span> </p> <p class="commands">JUMP WITH
+                    <span>"SPACE"</span> </p>
         <p class="commands">PRESS <span>"ENTER"</span> TO START YOUR WEEKEND</p>
-</div>
-<div class="end-screen">
+    </div>
+    <div class="end-screen">
         <p class="end-message">Hope you enjoyed your weekend in Berlin!</p>
         <p class="end-mate"></p>
         <p class="end-food"></p>
         <p class="end-sights"></p>
-        <p class="end-hospital"></p> 
-</div>
+        <p class="end-ring"></p>
+        <p class="end-hospital">Your weekend was a bit dramatic, you were taken to the hospital!</p>
+    </div>
 
     <script src="const.js"></script>
     <script src="background.js"></script>
@@ -51,4 +54,5 @@
     <script src="game.js"></script>
     <script src="main.js"></script>
 </body>
+
 </html>

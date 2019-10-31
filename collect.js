@@ -9,11 +9,11 @@ class Collect {
 
     draw() {
 
-        this.width = this.mateImg.width * .2;
-        this.height = this.mateImg.height * .2;
+        this.width = this.mateImg.width * .22;
+        this.height = this.mateImg.height * .22;
 
         image(this.mateImg, this.x, this.y, this.width, this.height);
-        this.x -= 6;
+        this.x -= 7;
     }
 }
 
@@ -24,15 +24,15 @@ class CollectMessage {
     }
 
     setup() {
-        this.message = loadImage("images/speech-bubble.png");
+        this.message = loadImage("images/Mate Note.png");
         }
 
     draw() {
-        this.width = this.message.width * .5;
-        this.height = this.message.height * .5;
+        this.width = this.message.width * .53;
+        this.height = this.message.height * .53;
 
         image(this.message, this.x, this.y, this.width, this.height);
-        this.x -= 3;
+        this.x -= 3.5;
     }
 }
 
@@ -44,11 +44,11 @@ class Collect2 {
     }
 
 draw() {
-    this.width = this.towerImg.width * .15;
-    this.height = this.towerImg.height * .15;
+    this.width = this.towerImg.width * .17;
+    this.height = this.towerImg.height * .17;
 
     image(this.towerImg, this.x, this.y, this.width, this.height);
-    this.x -= 7;
+    this.x -= 8;
 }
 }
 
@@ -60,11 +60,11 @@ class Collect3 {
     }
 
 draw() {
-    this.width = this.branImg.width * .5;
-    this.height = this.branImg.height * .5;
+    this.width = this.branImg.width * .52;
+    this.height = this.branImg.height * .52;
 
     image(this.branImg, this.x, this.y, this.width, this.height);
-    this.x -= 8;
+    this.x -= 9;
 }
 }
 
@@ -76,11 +76,11 @@ class Collect4 {
     }
 
 draw() {
-    this.width = this.kebabImg.width * .1;
-    this.height = this.kebabImg.height * .1;
+    this.width = this.kebabImg.width * .12;
+    this.height = this.kebabImg.height * .12;
 
     image(this.kebabImg, this.x, this.y, this.width, this.height);
-    this.x -= 7.5;
+    this.x -= 8.5;
 }
 }
 
@@ -95,11 +95,11 @@ class CollectMessage2 {
         }
 
     draw() {
-        this.width = this.message2.width * .5;
-        this.height = this.message2.height * .5;
+        this.width = this.message2.width * .52;
+        this.height = this.message2.height * .52;
 
         image(this.message2, this.x, this.y, this.width, this.height);
-        this.x -= 3;
+        this.x -= 3.5;
     }
 }
 
@@ -111,11 +111,11 @@ class Collect5 {
     }
 
 draw() {
-    this.width = this.hospitalImg.width * .5;
-    this.height = this.hospitalImg.height * .5;
+    this.width = this.hospitalImg.width * .52;
+    this.height = this.hospitalImg.height * .52;
 
     image(this.hospitalImg, this.x, this.y, this.width, this.height);
-    this.x -= 9;
+    this.x -= 10;
 }
 }
 
@@ -130,11 +130,11 @@ class CollectMessage3 {
         }
 
     draw() {
-        this.width = this.message3.width * .5;
-        this.height = this.message3.height * .5;
+        this.width = this.message3.width * .52;
+        this.height = this.message3.height * .52;
 
         image(this.message3, this.x, this.y, this.width, this.height);
-        this.x -= 3;
+        this.x -= 3.5;
     }
 }
 
@@ -146,11 +146,11 @@ class Collect6 {
     }
 
 draw() {
-    this.width = this.wallImg.width * .1;
-    this.height = this.wallImg.height * .1;
+    this.width = this.wallImg.width * .15;
+    this.height = this.wallImg.height * .15;
 
     image(this.wallImg, this.x, this.y, this.width, this.height);
-    this.x -= 6.5;
+    this.x -= 7.5;
 }
 }
 
@@ -162,11 +162,11 @@ class Collect7 {
     }
 
 draw() {
-    this.width = this.prezImg.width * .05;
-    this.height = this.prezImg.height * .05;
+    this.width = this.prezImg.width * .07;
+    this.height = this.prezImg.height * .07;
 
     image(this.prezImg, this.x, this.y, this.width, this.height);
-    this.x -= 8.5;
+    this.x -= 9.5;
 }
 }
 
@@ -178,11 +178,11 @@ class Collect8 {
     }
 
 draw() {
-    this.width = this.charlieImg.width * .2;
-    this.height = this.charlieImg.height * .2;
+    this.width = this.charlieImg.width * .22;
+    this.height = this.charlieImg.height * .22;
 
     image(this.charlieImg, this.x, this.y, this.width, this.height);
-    this.x -= 5.5;
+    this.x -= 6.5;
 }
 }
 
@@ -194,11 +194,11 @@ class Collect9{
     }
 
 draw() {
-    this.width = this.reichImg.width * .5;
-    this.height = this.reichImg.height * .5;
+    this.width = this.reichImg.width * .52;
+    this.height = this.reichImg.height * .52;
 
     image(this.reichImg, this.x, this.y, this.width, this.height);
-    this.x -= 9.5;
+    this.x -= 10.5;
 }
 }
 
@@ -210,11 +210,11 @@ class Collect10{
     }
 
 draw() {
-    this.width = this.clubImg.width * .08;
-    this.height = this.clubImg.height * .08;
+    this.width = this.clubImg.width * .12;
+    this.height = this.clubImg.height * .12;
 
     image(this.clubImg, this.x, this.y, this.width, this.height);
-    this.x -= 10;
+    this.x -= 11;
 }
 }
 
@@ -225,14 +225,37 @@ class CollectMessage4 {
     }
 
     setup() {
-        this.message4 = loadImage("images/Club note.png");
+        this.message4 = loadImage("images/CLUB NOTE.png");
+        this.orginalX = this.x;
+      
         }
 
     draw() {
-        this.width = this.message4.width * .5;
-        this.height = this.message4.height * .5
+        this.width = this.message4.width * .52;
+        this.height = this.message4.height * .52;
 
         image(this.message4, this.x, this.y, this.width, this.height);
-        this.x -=3;
+        this.x -=4;
+
+        if(this.x <= 0) {
+            sumClub= false;
+            this.x = this.orginalX;
+        }   
     }
 }
+
+    class Collect11{
+        constructor() {
+        this.x = width;
+        this.y = random(randomMin, randomMax);
+        this.ringImg = loadImage("images/ring.png")
+        }
+    
+    draw() {
+        this.width = this.ringImg.width * .25;
+        this.height = this.ringImg.height * .25;
+    
+        image(this.ringImg, this.x, this.y, this.width, this.height);
+        this.x -= 11;
+    }
+    }

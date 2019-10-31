@@ -1,20 +1,20 @@
 class Tourist {
     constructor() {
-        this.x = 50;
+        this.x = 30;
         this.velocity = 0;
         this.gravity = 0.5;
         this.jumps = 0;
 
     }
     preload() {
-        this.touristChar = loadImage("images/TotoroCat.png");
+        this.touristChar = loadImage("images/cute-tourist-bear-with-photo-camera_86629-15 (1).png");
     }
 
     setup() {
         this.width = this.touristChar.width * .3;
         this.height = this.touristChar.height * .3;
 
-        this.y = (height -40) - this.height;
+        this.y = (height -20) - this.height;
 
         this.orginalY = this.y;
         image(this.touristChar, this.x, this.y, this.width, this.height);
