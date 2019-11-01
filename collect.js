@@ -202,7 +202,7 @@ draw() {
 class CollectMessage4 {
     constructor() {
         this.x = width - 300;
-        this.y = height - 250;
+        this.y = height - 350;
     }
 
     setup() {
