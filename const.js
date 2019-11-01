@@ -5,7 +5,7 @@ function random(min, max) {
     return Math.floor(Math.random() * (max - min));
 }
 
-let time = 15;
+let time = 60;
 let start = false
 
 let sumMate = 0;
@@ -15,12 +15,8 @@ let sightsCollected = [];
 
 let sumKebab = 0;
 
-let hospitalCollected = [];
-
 let sumFood= 0;
 
 let sumClub = false;
-
-let sumRing = 0;
 
 let countDown = "off";

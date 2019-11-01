@@ -119,25 +119,6 @@ draw() {
 }
 }
 
-class CollectMessage3 {
-    constructor() {
-        this.x = width - 300;
-        this.y = height - 550;
-    }
-
-    setup() {
-        this.message3 = loadImage("images/HOSPITAL NOTE.png");
-        }
-
-    draw() {
-        this.width = this.message3.width * .52;
-        this.height = this.message3.height * .52;
-
-        image(this.message3, this.x, this.y, this.width, this.height);
-        this.x -= 3.5;
-    }
-}
-
 class Collect6 {
     constructor() {
     this.x = width;
@@ -256,6 +237,6 @@ class CollectMessage4 {
         this.height = this.ringImg.height * .25;
     
         image(this.ringImg, this.x, this.y, this.width, this.height);
-        this.x -= 11;
+        this.x -= 12;
     }
     }

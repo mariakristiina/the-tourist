@@ -4,7 +4,6 @@ class Game {
         this.background = new Background();
         this.message = new CollectMessage();
         this.message2 = new CollectMessage2();
-        this.message3 = new CollectMessage3();
         this.message4 = new CollectMessage4();
         this.mateArr = [];
         this.TVArr = [];
@@ -29,7 +28,6 @@ class Game {
         this.tourist.setup();
         this.message.setup();
         this.message2.setup();
-        this.message3.setup();
         this.message4.setup();
 
     }
@@ -118,7 +116,7 @@ class Game {
             }
         });
 
-        if (frameCount > 350 && frameCount % 700 === 0 && !hospitalCollected.includes("collected")) {
+        if (frameCount > 350 && frameCount % 400 === 0) {
             this.hospitalArr.push(new Collect5);
         }
         this.hospitalArr.forEach((hospital, index) => {
@@ -129,13 +127,17 @@ class Game {
             }
             if (this.pointCollection(hospital, this.tourist)) {
                 this.hospitalArr.splice(index, 1);
-                hospitalCollected.push("collected");
+                countDown = "off";
+                noLoop();
+                document.querySelector(".end-hospital").style.visibility = "visible";
+                document.querySelector(".end-message").style.visibility = "visible";
+                document.querySelector(".end-message").innerHTML = "Your weekend is over!"
+                document.querySelector(".end-message").style.left = "73vh";
+                document.querySelector("h1").style.visibility = "visible";
+                document.querySelector(".scores").style.visibility = "hidden";
+                document.querySelector(".timer").style.visibility = "hidden";
             }
         });
-
-        if (hospitalCollected.includes("collected")) {
-            this.message3.draw();
-        }
 
         if (frameCount > 700 && frameCount % 600 === 0 && !sightsCollected.includes("the Berlin Wall")) {
             this.wallArr.push(new Collect6);
@@ -227,7 +229,7 @@ class Game {
         this.message4.draw();
         }
 
-        if (frameCount > 400 && frameCount % 400 === 0) {
+        if (frameCount > 200 && frameCount % 150 === 0) {
             this.ringArr.push(new Collect11);
         }
 
@@ -239,8 +241,16 @@ class Game {
             }
             if (this.pointCollection(ring, this.tourist)) {
                 this.ringArr.splice(index, 1);
-                sumRing += 1;
-                document.querySelector(".ring span").innerHTML = sumRing;
+                countDown = "off";
+                noLoop();
+                document.querySelector(".end-message").style.visibility = "visible";
+                document.querySelector(".end-message").innerHTML = "Your weekend is over!"
+                document.querySelector(".end-message").style.left = "73vh";
+                document.querySelector("h1").style.visibility = "visible";
+                document.querySelector(".scores").style.visibility = "hidden";
+                document.querySelector(".timer").style.visibility = "hidden";
+                document.querySelector(".end-ring").style.visibility = "visible";
+                document.querySelector(".end-ring").innerHTML = `You were run over by the S-Bahn!`;
             }
         });
 
@@ -267,8 +277,11 @@ class Game {
         if(countDown === "on") {
         let timeLeft = 0;
         let timer = setInterval(function () {
+            if(countDown === "on") {
             document.querySelector(".timer span").innerHTML = time - timeLeft;
-            timeLeft += 1;
+            timeLeft += 1; } 
+            else { document.querySelector(".timer span").innerHTML = time - timeLeft;
+        }
             if (timeLeft > time) {
                 clearInterval(timer);
                 console.log("the end");
@@ -279,7 +292,6 @@ class Game {
                 document.querySelector(".end-mate").style.visibility = "visible";
                 document.querySelector(".end-food").style.visibility = "visible";
                 document.querySelector(".end-sights").style.visibility = "visible";
-                document.querySelector(".end-ring").style.visibility = "visible";
                 document.querySelector("h1").style.visibility = "visible";
                 document.querySelector(".scores").style.visibility = "hidden";
                 document.querySelector(".timer").style.visibility = "hidden";
@@ -292,12 +304,6 @@ class Game {
                     document.querySelector(".end-sights").style.padding = "3vh 8vh"
                     document.querySelector(".end-sights").style.left = "63vh"
             } 
-
-            if(sumClub === 1) {
-                document.querySelector(".end-ring").innerHTML = `You rode around the Ring Bahn one time.`;
-            } else {
-                document.querySelector(".end-ring").innerHTML = `You rode around the Ring Bahn ${sumRing} times.`; 
-            }
                
                 if((sumFood + sumKebab) === 0) {
                 document.querySelector(".end-food").innerHTML = `You didn't eat anything the whole weekend`; }
