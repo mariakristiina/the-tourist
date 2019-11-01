@@ -264,6 +264,7 @@ class Game {
     }
 
     timer() {
+        if(countDown === "on") {
         let timeLeft = 0;
         let timer = setInterval(function () {
             document.querySelector(".timer span").innerHTML = time - timeLeft;
@@ -285,8 +286,9 @@ class Game {
 
                 if(sightsCollected.length === 0) {
                 document.querySelector(".end-sights").innerHTML = `What were you doing? You didn't visit any sights!`; }
+                else if(sightsCollected.length === 5) {document.querySelector(".end-sights").innerHTML = `You are a good tourist! You visited all the sights!`} 
                 else if(sightsCollected.length === 1) {document.querySelector(".end-sights").innerHTML = `What were you doing? You visited only one sight!`} 
-                else {document.querySelector(".end-sights").innerHTML = `Well done! You visited ${sumSights} sights.`
+                else {document.querySelector(".end-sights").innerHTML = `Well done! You visited ${sumSights}/5 sights.`
                     document.querySelector(".end-sights").style.padding = "3vh 8vh"
                     document.querySelector(".end-sights").style.left = "63vh"
             } 
@@ -317,11 +319,11 @@ class Game {
                 }
                 else if (sumMate === 1) {
                     document.querySelector(".end-mate").innerHTML = `You drank 1 Mate!`; 
-                    document.querySelector(".end-mate").style.padding ="3vh 15.3vh";  
+                    document.querySelector(".end-mate").style.padding ="3vh 16.3vh";  
                 }
                 else if (sumMate < 6) {
                     document.querySelector(".end-mate").innerHTML = `You drank ${sumMate} Mates!`;
-                    document.querySelector(".end-mate").style.padding ="3vh 14.6vh";
+                    document.querySelector(".end-mate").style.padding ="3vh 15.6vh";
                 } else {
                     document.querySelector(".end-mate").innerHTML = `You drank ${sumMate} Mates! You wont sleep for a while!`;
                     document.querySelector(".end-mate").style.padding = "3vh 3vh";
@@ -331,8 +333,7 @@ class Game {
                 if(hospitalCollected.includes("collected")) {
                 document.querySelector(".end-hospital").style.visibility = "visible";}  
             }
-        }, 1000);
+        }, 1000); }
 
-    }
-
+ else { document.querySelector(".timer span").innerHTML = time - timeLeft; } }
 }

@@ -29,6 +29,7 @@ function keyPressed() {
         document.querySelector("h1").style.visibility = "hidden";
         document.querySelector(".scores").style.visibility = "visible";
         document.querySelector(".timer").style.visibility = "visible";
+        countDown = "on";
         game.timer();
     }
     if(keyCode === 91) {
