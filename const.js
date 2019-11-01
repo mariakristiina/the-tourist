@@ -5,7 +5,7 @@ function random(min, max) {
     return Math.floor(Math.random() * (max - min));
 }
 
-let time = 60;
+let time = 30;
 let start = false
 
 let sumMate = 0;
