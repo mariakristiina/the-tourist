@@ -1,5 +1,5 @@
-let height = 850;
-let width = 1600;
+let height = 650;
+let width = 1250;
 
 function random(min, max) {
     return Math.floor(Math.random() * (max - min));

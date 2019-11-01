@@ -35,7 +35,7 @@ draw() {
 
 jump() {
     if(this.jumps < 3) {
-        this.velocity = -15;
+        this.velocity = -13;
         this.jumps++;
     }
 }

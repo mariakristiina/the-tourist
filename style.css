@@ -1,14 +1,18 @@
 * {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
-    margin-left: 1.5vh;
+}
+
+body {
+    margin-top: 2vh;
+    margin-left: 1vw;
 }
 
 .start-screen {
     visibility: visible;
     position: absolute;
     z-index: 1000;
-    left: 51vh;
+    left: 18vw;
     top: 20vh;
     background-color: rgba(0, 0, 0, .5);
     padding: 5vh 17vh 3vh 17vh;
@@ -27,8 +31,8 @@
 
 .scores {
     position: fixed;
-    top: 7vh;
-    left: 5vh;
+    top: 4vh;
+    left: 2vw;
     padding: 2vh;
     border-radius: 10px;
     visibility: hidden;
@@ -45,8 +49,8 @@
 
 h1 {
     position: absolute;
-    top: 10vh;
-    left: 67vh;
+    top: 12vh;
+    left: 28vw;
     font-size: 3em;
     visibility: visible;
 }
@@ -55,8 +59,8 @@ h1 {
     padding: 1vh;
     border-radius: 10px;
     position: fixed;
-    top: 11vh;
-    left: 160vh;
+    top: 6vh;
+    left: 69vw;
     visibility: hidden;
     background-color: rgba(0, 0, 0, .5);
     color: white;
@@ -66,7 +70,7 @@ h1 {
     visibility: hidden;
     position: absolute;
     z-index: 1000;
-    left: 63vh;
+    left: 25vw;
     top: 22vh;
     background-color: rgba(0, 0, 0, .5);
     padding: 3vh 3vh;
@@ -80,7 +84,7 @@ h1 {
     visibility: hidden;
     position: absolute;
     z-index: 1000;
-    left: 63vh;
+    left: 25vw;
     top: 33vh;
     background-color: rgba(0, 0, 0, .5);
     padding: 3vh 10.5vh;
@@ -94,7 +98,7 @@ h1 {
     visibility: hidden;
     position: absolute;
     z-index: 1000;
-    left: 63vh;
+    left: 25vw;
     top: 44vh;
     background-color: rgba(0, 0, 0, .5);
     padding: 3vh 2.3vh;
@@ -108,7 +112,7 @@ h1 {
     visibility: hidden;
     position: absolute;
     z-index: 1000;
-    left: 59.5vh;
+    left: 23vw;
     top: 55vh;
     background-color: rgba(0, 0, 0, .5);
     padding: 3vh 2.3vh;
@@ -122,7 +126,7 @@ h1 {
     visibility: hidden;
     position: absolute;
     z-index: 1000;
-    left: 51.5vh;
+    left: 19vw;
     top: 33vh;
     background-color: rgba(0, 0, 0, .5);
     padding: 3vh 2.3vh;
@@ -136,7 +140,7 @@ h1 {
     visibility: hidden;
     position: absolute;
     z-index: 1000;
-    left: 63vh;
+    left: 27vW;
     top: 33vh;
     background-color: rgba(0, 0, 0, .5);
     padding: 3vh 4vh;

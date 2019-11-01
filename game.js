@@ -132,7 +132,7 @@ class Game {
                 document.querySelector(".end-hospital").style.visibility = "visible";
                 document.querySelector(".end-message").style.visibility = "visible";
                 document.querySelector(".end-message").innerHTML = "Your weekend is over!"
-                document.querySelector(".end-message").style.left = "73vh";
+                document.querySelector(".end-message").style.left = "31vw";
                 document.querySelector("h1").style.visibility = "visible";
                 document.querySelector(".scores").style.visibility = "hidden";
                 document.querySelector(".timer").style.visibility = "hidden";
@@ -245,7 +245,7 @@ class Game {
                 noLoop();
                 document.querySelector(".end-message").style.visibility = "visible";
                 document.querySelector(".end-message").innerHTML = "Your weekend is over!"
-                document.querySelector(".end-message").style.left = "73vh";
+                document.querySelector(".end-message").style.left = "31vw";
                 document.querySelector("h1").style.visibility = "visible";
                 document.querySelector(".scores").style.visibility = "hidden";
                 document.querySelector(".timer").style.visibility = "hidden";
@@ -298,11 +298,10 @@ class Game {
 
                 if(sightsCollected.length === 0) {
                 document.querySelector(".end-sights").innerHTML = `What were you doing? You didn't visit any sights!`; }
-                else if(sightsCollected.length === 5) {document.querySelector(".end-sights").innerHTML = `You are a good tourist! You visited all the sights!`} 
                 else if(sightsCollected.length === 1) {document.querySelector(".end-sights").innerHTML = `What were you doing? You visited only one sight!`} 
                 else {document.querySelector(".end-sights").innerHTML = `Well done! You visited ${sumSights}/5 sights.`
                     document.querySelector(".end-sights").style.padding = "3vh 8vh"
-                    document.querySelector(".end-sights").style.left = "63vh"
+                    document.querySelector(".end-sights").style.left = "25vw"
             } 
                
                 if((sumFood + sumKebab) === 0) {
@@ -318,7 +317,7 @@ class Game {
                 else {
                 document.querySelector(".end-food").innerHTML = `You defintely put on some weight! You ate ${sumKebab} Kebabs and ${sumFood} Pretzels!`; 
                 document.querySelector(".end-food").style.padding ="3vh 3vh";
-                document.querySelector(".end-food").style.left ="50vh";}
+                document.querySelector(".end-food").style.left ="18vw";}
                 
                 if(sumMate === 0) {
                     document.querySelector(".end-mate").innerHTML = `You didn't drink any Mates!`;
@@ -333,11 +332,8 @@ class Game {
                 } else {
                     document.querySelector(".end-mate").innerHTML = `You drank ${sumMate} Mates! You wont sleep for a while!`;
                     document.querySelector(".end-mate").style.padding = "3vh 3vh";
-                    document.querySelector(".end-mate").style.left = "59.5vh";
-                }
-                
-                if(hospitalCollected.includes("collected")) {
-                document.querySelector(".end-hospital").style.visibility = "visible";}  
+                    document.querySelector(".end-mate").style.left = "23vw";
+                } 
             }
         }, 1000); }
 

@@ -20,7 +20,7 @@ class Collect {
 class CollectMessage {
     constructor() {
         this.x = width - 300;
-        this.y = height - 400;
+        this.y = height - 350;
     }
 
     setup() {
@@ -87,7 +87,7 @@ draw() {
 class CollectMessage2 {
     constructor() {
         this.x = width - 300;
-        this.y = height - 700;
+        this.y = height - 500;
     }
 
     setup() {
@@ -143,8 +143,8 @@ class Collect7 {
     }
 
 draw() {
-    this.width = this.prezImg.width * .07;
-    this.height = this.prezImg.height * .07;
+    this.width = this.prezImg.width * .05;
+    this.height = this.prezImg.height * .05;
 
     image(this.prezImg, this.x, this.y, this.width, this.height);
     this.x -= 9.5;
